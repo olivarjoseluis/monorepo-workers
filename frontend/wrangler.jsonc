@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "waitly-web",
+  // Set this to today's date
+  "compatibility_date": "2026-10-07",
+  // Sin "main": este Worker sólo sirve assets estáticos.
+  // El directorio lo inyecta @cloudflare/vite-plugin (dist/client), por eso
+  // no se declara "assets.directory" aquí.
+  "assets": {
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

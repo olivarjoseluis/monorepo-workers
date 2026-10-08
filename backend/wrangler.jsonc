@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "waitly-api",
+  "main": "./src/index.ts",
+  // Set this to today's date
+  "compatibility_date": "2026-10-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    // Orígenes permitidos por CORS, separados por coma.
+    // En producción cámbialo por el dominio del frontend desplegado.
+    "CORS_ORIGINS": "http://localhost:5173,http://localhost:4173"
+  }
+
+  // ---------------------------------------------------------------------
+  // D1: cuando quieras persistencia real, descomenta este bloque y corre:
+  //   npx wrangler d1 create waitly-db
+  //   npx wrangler d1 execute waitly-db --local --file=./migrations/0001_create_waitlist.sql
+  // El repositorio D1 ya está implementado en src/repositories/d1-waitlist.repository.ts
+  // y la fábrica lo selecciona automáticamente cuando el binding DB existe.
+  // ---------------------------------------------------------------------
+  // "d1_databases": [
+  //   {
+  //     "binding": "DB",
+  //     "database_name": "waitly-db",
+  //     "database_id": "<pega-aquí-el-id-que-devuelve-wrangler>",
+  //     "migrations_dir": "./migrations"
+  //   }
+  // ]
+}

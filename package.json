@@ -1,0 +1,28 @@
+{
+  "name": "waitly",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Waitly — monorepo (Vite + React frontend, Hono worker backend) para el curso de Cloudflare Workers de Platzi",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c magenta,cyan \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "dev:backend": "npm run dev --workspace backend",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "lint": "npm run lint --workspace backend && npm run lint --workspace frontend",
+    "deploy": "npm run deploy --workspace backend && npm run deploy --workspace frontend",
+    "deploy:frontend": "npm run deploy --workspace frontend",
+    "deploy:backend": "npm run deploy --workspace backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+}
