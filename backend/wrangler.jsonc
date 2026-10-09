@@ -11,7 +11,7 @@
   "vars": {
     // Orígenes permitidos por CORS, separados por coma.
     // En producción cámbialo por el dominio del frontend desplegado.
-    "CORS_ORIGINS": "http://localhost:5173,http://localhost:4173"
+    "CORS_ORIGINS": "http://localhost:5173,http://localhost:4173,https://waitly-web.olivarjoseluis9.workers.dev"
   }
 
   // ---------------------------------------------------------------------
